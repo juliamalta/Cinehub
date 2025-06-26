@@ -19,14 +19,13 @@ export default function TrendingCarousel() {
             <div className="container">
                 <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
                     {items.slice(0, 4).map((item) => (
-                        <div key={item.id}>
-                            <CardThree
-                                title={item.title || item.name || 'Sem Título'}
-                                year={(item.release_date || item.first_air_date || '').split('-')[0]}
-                                genre={item.media_type === 'tv' ? 'Série em Alta' : 'Filme em Alta'}
-                                image={item.poster_path}
-                            />
-                        </div>
+                        <CardThree
+                            key={item.id}
+                            title={item.title || item.name || 'Sem Título'}
+                            year={(item.release_date || item.first_air_date || '').split('-')[0]}
+                            genre={item.media_type === 'tv' ? 'Série em Alta' : 'Filme em Alta'}
+                            image={item.poster_path}
+                        />
                     ))}
                 </div>
             </div>

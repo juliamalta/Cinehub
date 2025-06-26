@@ -18,7 +18,8 @@ export const getTrendingContent = async (): Promise<TrendingItem[]> => {
     try {
         const response = await axios.get(`${BASE_URL}/trending/all/week`, {
             params: {
-                api_key: API_KEY,
+                // eslint-disable-next-line camelcase
+                ['api_key']: API_KEY,
                 language: 'pt-BR',
             },
         })
