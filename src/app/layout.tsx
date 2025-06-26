@@ -5,7 +5,6 @@ import './globals.css'
 import { CiPhone } from 'react-icons/ci'
 import { CiMail } from 'react-icons/ci'
 
-import { GoogleAnalyticsClient } from '@/components/GoogleAnalyticsClient'
 import { Footer } from '@/components/sections/Footer'
 import NavigationHeader from '@/components/sections/Navigations'
 import { configs } from '@/configs'
