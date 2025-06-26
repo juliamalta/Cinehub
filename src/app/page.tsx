@@ -16,17 +16,12 @@ import { MdOutlineGroups } from 'react-icons/md'
 import { MdAutoGraph } from 'react-icons/md'
 import { MdAccessTime } from 'react-icons/md'
 import { PiStarThin } from 'react-icons/pi'
-import { TbWorld } from 'react-icons/tb'
-import { TbCurrentLocation } from 'react-icons/tb'
-import { TfiMedallAlt } from 'react-icons/tfi'
 
-import AboutUs1 from '@/components/sections/AboutUs/AboutUs1'
 import { Cards1, Cards2 } from '@/components/sections/Cards'
 import Cards3 from '@/components/sections/Cards/Cards3'
 import Cards4 from '@/components/sections/Cards/Cards4'
-import Contact from '@/components/sections/Contact/Contact'
 import { HeroSection } from '@/components/sections/hero-section'
-import { getNowPlayingMovies } from '@/services/tmdbApi'
+
 export default function Home() {
     return (
         <>
