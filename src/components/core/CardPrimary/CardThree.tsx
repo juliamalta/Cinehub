@@ -11,7 +11,7 @@ export default function CardThree({ title, year, genre, image, desc }: CardProps
                 />
             )}
             <div className="bg-gradient-to-t from-gray-900 to-transparent p-5">
-                <h2 className="text-2xl font-bold text-white drop-shadow-md">{title}</h2>
+                <h2 className="text-md font-bold text-white drop-shadow-md">{title}</h2>
                 {year && <p className="mt-1 text-gray-400">{year}</p>}
                 {genre && (
                     <span className="mt-3 inline-block rounded-full bg-red-900 px-4 py-1 text-xs font-semibold uppercase text-white drop-shadow-md">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import CardThree from '@/components/core/CardPrimary/CardThree'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { getAnimationMovies, Movie } from '@/services/tmdbApiAnimation'
 
 export default function AnimationList() {
@@ -13,16 +14,23 @@ export default function AnimationList() {
     return (
         <section className="bg-gray-950 py-16" id="filmes de animaçao">
             <div className="container">
-                <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
-                    {movies.slice(0, 4).map((movie) => (
-                        <CardThree
-                            key={movie.id}
-                            title={movie.title}
-                            year={movie.release_date?.split('-')[0]}
-                            genre="Filmes de Animação"
-                            image={movie.poster_path}
-                        />
-                    ))}
+                <div className="mx-auto w-full pt-12">
+                    <Carousel>
+                        <CarouselContent>
+                            {movies.map((movie) => (
+                                <CarouselItem key={movie.id} className="px-5 md:basis-1/2 lg:basis-1/4">
+                                    <CardThree
+                                        title={movie.title}
+                                        year={movie.release_date?.split('-')[0]}
+                                        genre="Filmes de Animação"
+                                        image={movie.poster_path}
+                                    />
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
                 </div>
             </div>
         </section>
