@@ -18,7 +18,7 @@ export default function AnimationList() {
                     <Carousel>
                         <CarouselContent>
                             {movies.map((movie) => (
-                                <CarouselItem key={movie.id} className="px-5 md:basis-1/2 lg:basis-1/4">
+                                <CarouselItem key={movie.id} className="px-5 md:basis-1/2 2xl:basis-1/4">
                                     <CardThree
                                         title={movie.title}
                                         year={movie.release_date?.split('-')[0]}

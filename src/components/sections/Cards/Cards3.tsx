@@ -22,7 +22,7 @@ export default function TrendingCarousel() {
                     <Carousel>
                         <CarouselContent>
                             {items.map((item) => (
-                                <CarouselItem key={item.id} className="px-5 md:basis-1/2 lg:basis-1/4">
+                                <CarouselItem key={item.id} className="px-5 md:basis-1/2 2xl:basis-1/4">
                                     <CardThree
                                         title={item.title || item.name || 'Sem Título'}
                                         year={(item.release_date || item.first_air_date || '').split('-')[0]}
