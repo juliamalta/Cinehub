@@ -13,9 +13,12 @@ export interface Movie {
 export const getAnimationMovies = async (): Promise<Movie[]> => {
     const response = await axios.get(`${BASE_URL}/discover/movie`, {
         params: {
+            // eslint-disable-next-line camelcase
             api_key: API_KEY,
             language: 'pt-BR',
+            // eslint-disable-next-line camelcase
             with_genres: '16', // filtro animação
+            // eslint-disable-next-line camelcase
             sort_by: 'popularity.desc',
         },
     })
