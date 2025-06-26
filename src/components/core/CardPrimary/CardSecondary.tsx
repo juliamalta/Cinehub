@@ -1,6 +1,6 @@
 import { CardProps } from '@/components/core/CardPrimary/Card.types'
 
-function CardSecondary({ text, icon, title, iconBgColor }: CardProps) {
+function CardSecondary({ text, icon, title }: CardProps) {
     return (
         <div className="transition-transform hover:scale-105">
             <div>
