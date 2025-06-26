@@ -9,7 +9,7 @@ import { CardSectionProps } from '@/components/sections/Cards/Cards.types'
 
 function Card2({ cards, title, desc }: CardSectionProps) {
     return (
-        <section id="Valores" className="bg-gray-950 py-8" id="card estatiscas">
+        <section className="bg-gray-950 py-8" id="cardestatiscas">
             <div className="container mx-auto items-center justify-center">
                 <div className="mx-auto w-full rounded-2xl bg-black p-16">
                     <AnimatedList>
