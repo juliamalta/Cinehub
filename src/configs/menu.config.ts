@@ -1,7 +1,7 @@
 export const menuConfig = [
     {
         text: 'Home',
-        link: '#inicio',
+        link: '/',
     },
     {
         text: 'Lista de Desejos',
@@ -17,6 +17,6 @@ export const menuConfig = [
     },
     {
         text: 'Entrar',
-        link: '#footer',
+        link: '/login',
     },
 ]
