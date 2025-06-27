@@ -1,11 +1,13 @@
 'use client'
 
+import { collection, addDoc } from 'firebase/firestore'
 import Link from 'next/link'
 import { CiPlay1 } from 'react-icons/ci'
 import { IoMdAdd } from 'react-icons/io'
 
 import { HeroSection2Props } from '@/components/sections/hero-section/hero-section.types'
 import { Button } from '@/components/ui/button'
+import { db } from '@/lib/firebase'
 
 export function HeroSection2({
     id,
@@ -17,6 +19,19 @@ export function HeroSection2({
     originallanguage,
     originaltitle,
 }: HeroSection2Props) {
+    const handleAddToFavorites = async () => {
+        try {
+            await addDoc(collection(db, 'favoritos'), {
+                id,
+                title,
+                voteaverage,
+            })
+            console.log('filme adicionado ao firebase com sucesso')
+        } catch (error) {
+            console.error('erro ao adicionar ao favorito', error)
+        }
+    }
+
     return (
         <section
             id="inicio"
@@ -59,7 +74,7 @@ export function HeroSection2({
                             <Button variant="herobutton" size="hero">
                                 <CiPlay1 className="mr-4 size-8" color="white" /> Assistir Trailer
                             </Button>
-                            <Button variant="default" size="hero">
+                            <Button variant="default" size="hero" onClick={handleAddToFavorites}>
                                 <IoMdAdd className="mr-4 size-8" color="white" /> Minha Lista
                             </Button>
                         </div>

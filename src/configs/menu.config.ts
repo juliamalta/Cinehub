@@ -5,7 +5,7 @@ export const menuConfig = [
     },
     {
         text: 'Lista de Desejos',
-        link: '#sobre',
+        link: '/WishList',
     },
     {
         text: 'Assistidos',
