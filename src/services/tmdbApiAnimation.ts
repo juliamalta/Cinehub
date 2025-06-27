@@ -4,6 +4,8 @@ const API_KEY = '28fc232cc001c31e8a031f419d0a14ca'
 const BASE_URL = 'https://api.themoviedb.org/3'
 
 export interface Movie {
+    original_language?: string
+    original_title: string
     id: number
     title?: string
     name?: string // para séries

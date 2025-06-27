@@ -1,4 +1,5 @@
 import { HeroSection2 } from '@/components/sections/hero-section'
+import { Rating } from '@/components/sections/Rating'
 import { getTrendingContent } from '@/services/tmdbApi'
 import { getAnimationMovies } from '@/services/tmdbApiAnimation'
 
@@ -29,6 +30,9 @@ export default async function Detalhes({ params }: PageProps) {
     const image = item?.backdrop_path
     const image1 = item?.poster_path
     const vote = item?.vote_average
+    const original = item?.original_language
+    const originaltitle = item?.original_title
+
     return (
         <>
             <HeroSection2
@@ -38,7 +42,10 @@ export default async function Detalhes({ params }: PageProps) {
                 image={image}
                 image1={image1}
                 voteaverage={vote}
+                originallanguage={original}
+                originaltitle={originaltitle}
             />
+            <Rating />
         </>
     )
 }

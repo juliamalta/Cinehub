@@ -1,20 +1,35 @@
 'use client'
 
-import { HeroSection2Props } from '@/components/sections/hero-section/hero-section.types'
+import Link from 'next/link'
+import { CiPlay1 } from 'react-icons/ci'
+import { IoMdAdd } from 'react-icons/io'
 
-export function HeroSection2({ id, title, description, image, image1, voteaverage }: HeroSection2Props) {
+import { HeroSection2Props } from '@/components/sections/hero-section/hero-section.types'
+import { Button } from '@/components/ui/button'
+
+export function HeroSection2({
+    id,
+    title,
+    description,
+    image,
+    image1,
+    voteaverage,
+    originallanguage,
+    originaltitle,
+}: HeroSection2Props) {
     return (
         <section
             id="inicio"
-            className="relative mx-auto h-screen lg:h-96"
+            className="relative mx-auto h-screen py-24 lg:h-96"
             style={{
                 backgroundImage: image ? `url(https://image.tmdb.org/t/p/original${image})` : undefined,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
             }}>
-            <div className="absolute inset-0 bg-black bg-opacity-60">
-                <div className="container mx-auto flex flex-col gap-8 px-4 pt-24 sm:flex-row">
+            <div className="absolute inset-0 z-0 bg-black bg-opacity-60" />
+            <div className="container absolute inset-0 mx-auto">
+                <div className="flex flex-col gap-8 px-4 py-12 sm:flex-row">
                     <div className="hidden lg:block">
                         {image1 && (
                             <img
@@ -24,17 +39,29 @@ export function HeroSection2({ id, title, description, image, image1, voteaverag
                             />
                         )}
                     </div>
-                    <div className="flex flex-col gap-8">
+                    <div className="flex flex-col gap-4">
                         <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
                             {title}
                         </h1>
-                        <div className="flex gap-3">
-                            <p className="text-white">Avaliação</p>
-                            <p className="text-white">{voteaverage}</p>
-                        </div>
-                        <div className="flex flex-col gap-3">
+
+                        <div className="flex flex-col gap-2">
+                            <div className="flex gap-2">
+                                <p className="text-white">{originallanguage}</p>
+                            </div>
+                            <div className="flex gap-2">
+                                <p className="text-white">Avaliação</p>
+                                <p className="text-white">{voteaverage}</p>
+                            </div>
                             <p className="font-bold text-white">Sinopse</p>
                             <p className="max-w-6xl text-sm text-white">{description}</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <Button variant="herobutton" size="hero">
+                                <CiPlay1 className="mr-4 size-8" color="white" /> Assistir Trailer
+                            </Button>
+                            <Button variant="default" size="hero">
+                                <IoMdAdd className="mr-4 size-8" color="white" /> Minha Lista
+                            </Button>
                         </div>
                     </div>
                 </div>
