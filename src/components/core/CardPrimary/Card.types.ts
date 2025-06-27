@@ -1,7 +1,7 @@
 export type CardProps = {
     titleApp?: string
     text?: string
-    title: string
+    title?: string
     desc?: string
     icon?: React.ReactNode
     img?: string

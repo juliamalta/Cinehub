@@ -5,9 +5,15 @@ const BASE_URL = 'https://api.themoviedb.org/3'
 
 export interface Movie {
     id: number
-    title: string
+    title?: string
+    name?: string // para séries
     poster_path: string
-    release_date: string
+    release_date?: string
+    first_air_date?: string
+    media_type: 'movie' | 'tv'
+    overview?: string
+    backdrop_path?: string
+    vote_average?: string
 }
 
 export const getAnimationMovies = async (): Promise<Movie[]> => {
