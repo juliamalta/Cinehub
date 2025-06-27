@@ -9,14 +9,14 @@ export const menuConfig = [
     },
     {
         text: 'Assistidos',
-        link: '#inicio',
+        link: '/Lista',
     },
     {
         text: 'Social',
         link: '#trabalho',
     },
     {
-        text: 'Perfil',
+        text: 'Entrar',
         link: '#footer',
     },
 ]
