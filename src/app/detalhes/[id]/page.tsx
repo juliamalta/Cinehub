@@ -21,10 +21,18 @@ export default async function Detalhes({ params }: PageProps) {
 
     const description = item?.overview
     const image = item?.backdrop_path
-
+    const image1 = item?.poster_path
+    const vote = item?.vote_average
     return (
         <>
-            <HeroSection2 id={params.id} title={title} description={description} image={image} />
+            <HeroSection2
+                id={params.id}
+                title={title}
+                description={description}
+                image={image}
+                image1={image1}
+                voteaverage={vote}
+            />
         </>
     )
 }

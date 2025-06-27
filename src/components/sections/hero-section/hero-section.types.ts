@@ -8,5 +8,7 @@ export type HeroSection2Props = {
     id: string
     title: string
     image?: string
+    image1?: string
     description?: string
+    voteaverage?: string
 }

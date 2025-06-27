@@ -14,6 +14,7 @@ export interface TrendingItem {
     media_type: 'movie' | 'tv'
     overview?: string
     backdrop_path?: string
+    vote_average?: string
 }
 
 export const getTrendingContent = async (): Promise<TrendingItem[]> => {
