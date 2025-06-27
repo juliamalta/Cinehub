@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import CardThree from '@/components/core/CardPrimary/CardThree'
@@ -23,12 +24,14 @@ export default function TrendingCarousel() {
                         <CarouselContent>
                             {items.map((item) => (
                                 <CarouselItem key={item.id} className="px-5 md:basis-1/2 2xl:basis-1/4">
-                                    <CardThree
-                                        title={item.title || item.name || 'Sem Título'}
-                                        year={(item.release_date || item.first_air_date || '').split('-')[0]}
-                                        genre={item.media_type === 'tv' ? 'Série em Alta' : 'Filme em Alta'}
-                                        image={item.poster_path}
-                                    />
+                                    <Link href={`/detalhes/${item.id}`}>
+                                        <CardThree
+                                            title={item.title || item.name || 'Sem Título'}
+                                            year={(item.release_date || item.first_air_date || '').split('-')[0]}
+                                            genre={item.media_type === 'tv' ? 'Série em Alta' : 'Filme em Alta'}
+                                            image={item.poster_path}
+                                        />
+                                    </Link>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
