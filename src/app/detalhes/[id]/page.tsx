@@ -1,22 +1,28 @@
 import { HeroSection2 } from '@/components/sections/hero-section'
 import { getTrendingContent } from '@/services/tmdbApi'
+import { getAnimationMovies } from '@/services/tmdbApiAnimation'
 
 interface PageProps {
     params: { id: string }
 }
 
 export async function generateStaticParams() {
-    const items = await getTrendingContent()
+    const trending = await getTrendingContent()
+    const animated = await getAnimationMovies()
 
-    return items.map((item) => ({
+    const combined = [...trending, ...animated]
+
+    return combined.map((item) => ({
         id: String(item.id),
     }))
 }
 
 export default async function Detalhes({ params }: PageProps) {
-    const items = await getTrendingContent()
+    const [trending, animated] = await Promise.all([getAnimationMovies(), getTrendingContent()])
 
-    const item = items.find((i) => String(i.id) === params.id)
+    const allItems = [...trending, ...animated]
+
+    const item = allItems.find((i) => String(i.id) === params.id)
     const title = item?.title || item?.name || 'Sem título'
 
     const description = item?.overview

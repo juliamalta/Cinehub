@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 import CardThree from '@/components/core/CardPrimary/CardThree'
@@ -5,10 +6,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { getAnimationMovies, Movie } from '@/services/tmdbApiAnimation'
 
 export default function AnimationList() {
-    const [movies, setMovies] = useState<Movie[]>([])
+    const [items, setItems] = useState<Movie[]>([])
 
     useEffect(() => {
-        getAnimationMovies().then(setMovies)
+        getAnimationMovies().then(setItems)
     }, [])
 
     return (
@@ -17,14 +18,16 @@ export default function AnimationList() {
                 <div className="mx-auto w-full pt-12">
                     <Carousel>
                         <CarouselContent>
-                            {movies.map((movie) => (
-                                <CarouselItem key={movie.id} className="px-5 md:basis-1/2 2xl:basis-1/4">
-                                    <CardThree
-                                        title={movie.title}
-                                        year={movie.release_date?.split('-')[0]}
-                                        genre="Filmes de Animação"
-                                        image={movie.poster_path}
-                                    />
+                            {items.map((item) => (
+                                <CarouselItem key={item.id} className="px-5 md:basis-1/2 2xl:basis-1/4">
+                                    <Link href={`/detalhes/${item.id}`}>
+                                        <CardThree
+                                            title={item.title}
+                                            year={item.release_date?.split('-')[0]}
+                                            genre="Filmes de Animação"
+                                            image={item.poster_path}
+                                        />
+                                    </Link>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
