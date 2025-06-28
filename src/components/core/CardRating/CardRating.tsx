@@ -1,9 +1,27 @@
+import { collection, addDoc } from 'firebase/firestore'
+import { useState } from 'react'
 import { CiStar } from 'react-icons/ci'
 
 import { CardProps } from '@/components/core/CardPrimary/Card.types'
+import { ratingProps } from '@/components/core/CardRating/CardRating.types'
 import { Button } from '@/components/ui/button'
-
+import { Textarea } from '@/components/ui/textarea'
+import { db } from '@/lib/firebase'
 function CardRating() {
+    const [comment, setComment] = useState('')
+
+    const handleAddPublic = async () => {
+        try {
+            await addDoc(collection(db, 'rating'), {
+                publicrating: comment,
+            })
+            console.log('cometario adiciona ao firebase com sucesso')
+            setComment('')
+        } catch (error) {
+            console.error('erro ao adicionar ao favorito', error)
+        }
+    }
+
     return (
         <div className="flex w-full flex-col gap-8 rounded-xl bg-black p-8 shadow-2xl">
             <div className="flex items-center gap-3">
@@ -20,10 +38,15 @@ function CardRating() {
             </div>
             <div className="flex flex-col gap-4">
                 <div>
-                    <h1 className="mx-auto text-white">escreva sua avaliaçao</h1>
+                    <Textarea
+                        className="border-2 border-gray-900 text-white"
+                        placeholder="Escreva sua avaliação"
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
+                    />
                 </div>
                 <div className="">
-                    <Button variant="herobutton" size="hero">
+                    <Button onClick={handleAddPublic} variant="herobutton" size="hero">
                         Publicar Avaliaçao
                     </Button>
                 </div>
