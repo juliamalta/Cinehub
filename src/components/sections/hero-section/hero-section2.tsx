@@ -25,6 +25,7 @@ export function HeroSection2({
                 id,
                 title,
                 voteaverage,
+                image1,
             })
             console.log('filme adicionado ao firebase com sucesso')
         } catch (error) {

@@ -12,7 +12,7 @@ function List() {
         <section className="h-screen bg-gray-950 py-24" id="list">
             <div className="flex flex-col gap-4">
                 <div className="container flex items-center justify-center">
-                    <h1 className="text-2xl font-bold text-white">Minha Lista de Filmes e series </h1>
+                    <h1 className="text-xl font-bold text-white">Minha Lista de Filmes e series </h1>
                 </div>
                 <div>
                     <ListCard />
