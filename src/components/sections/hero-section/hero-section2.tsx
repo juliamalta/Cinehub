@@ -27,7 +27,7 @@ export function HeroSection2({
                 voteaverage,
                 image1,
             })
-            console.log('filme adicionado ao firebase com sucesso')
+            alert('Filme adicionado a sua Lista')
         } catch (error) {
             console.error('erro ao adicionar ao favorito', error)
         }

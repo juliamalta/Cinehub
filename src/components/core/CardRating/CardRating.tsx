@@ -15,7 +15,7 @@ function CardRating() {
             await addDoc(collection(db, 'rating'), {
                 publicrating: comment,
             })
-            console.log('cometario adiciona ao firebase com sucesso')
+            alert('Publicação adicionada')
             setComment('')
         } catch (error) {
             console.error('erro ao adicionar ao favorito', error)
