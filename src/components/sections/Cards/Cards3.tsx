@@ -23,7 +23,7 @@ export default function TrendingCarousel() {
                     <Carousel>
                         <CarouselContent>
                             {items.map((item) => (
-                                <CarouselItem key={item.id} className="px-5 md:basis-1/2 2xl:basis-1/4">
+                                <CarouselItem key={item.id} className="px-5 sm:basis-1/4 lg:basis-1/4">
                                     <Link href={`/detalhes/${item.id}`}>
                                         <CardThree
                                             title={item.title || item.name || 'Sem Título'}
